@@ -6,7 +6,7 @@ export class View extends React.Component {
 		this.audio = null;
 
 		this.state = {
-			currentIndex: 1,
+			currentIndex: 0,
 			songs: [
 				{
 					title: "South Park",
@@ -66,9 +66,7 @@ export class View extends React.Component {
 	render() {
 		const liList = this.state.songs.map((song, index) => {
 			return (
-				<li
-					key={index}
-					onClick={() => this.play(this.state.currentIndex)}>
+				<li key={index} onClick={() => this.play(index)}>
 					<span>{index + 1}</span>
 					<span>{song.name}</span>
 				</li>
