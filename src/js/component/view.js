@@ -4,7 +4,7 @@ export class View extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			currentIndex: 0,
+			currentIndex: 1,
 			songs: [
 				{
 					title: "South Park",
@@ -30,22 +30,26 @@ export class View extends React.Component {
 			]
 		};
 	}
+
+	async change(i) {
+		await this.setState({ currentIndex: i });
+	}
+
 	render() {
 		const liList = this.state.songs.map((song, index) => {
 			return (
-				<li key={index}>
-					<span>
-						<span>{index + 1}</span>
-						{song.title}
-					</span>
+				<li key={index} onClick={() => this.change(index)}>
+					<span>{index + 1}</span>
+					<span>{song.title}</span>
 				</li>
 			);
 		});
+
 		return (
 			<>
 				<audio controls>
 					<source
-						src="https://assets.breatheco.de/apis/sound/files/cartoons/songs/x-men.mp3"
+						src={this.state.songs[this.state.currentIndex].url}
 						type="audio/mp3"
 					/>
 				</audio>
