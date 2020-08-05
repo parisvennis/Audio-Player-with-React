@@ -67,15 +67,15 @@ export class View extends React.Component {
 		const liList = this.state.songs.map((song, index) => {
 			return (
 				<li key={index} onClick={() => this.play(index)}>
-					<span>{index + 1}</span>
-					<span>{song.name}</span>
+					<span className="number">{index + 1}</span>
+					<span className="title">{song.name}</span>
 				</li>
 			);
 		});
 
 		const audioPlayer = (
 			<>
-				<div>
+				<div className="buttons">
 					<button
 						onClick={() => this.play(this.state.currentIndex - 1)}>
 						<i className="fa fa-caret-left" aria-hidden="true" />
@@ -95,8 +95,9 @@ export class View extends React.Component {
 						<i className="fa fa-caret-right" aria-hidden="true" />
 					</button>
 				</div>
-
-				<audio controls ref={element => (this.audio = element)} />
+				<div className="tracker">
+					<audio controls ref={element => (this.audio = element)} />
+				</div>
 			</>
 		);
 
