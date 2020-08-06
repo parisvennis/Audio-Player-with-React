@@ -66,9 +66,16 @@ export class View extends React.Component {
 	render() {
 		const liList = this.state.songs.map((song, index) => {
 			return (
-				<li key={index} onClick={() => this.play(index)}>
-					<span className="number">{index + 1}</span>
-					<span className="title">{song.name}</span>
+				<li
+					className={
+						this.state.currentIndex == index ? "active" : "body"
+					}
+					key={index}
+					onClick={() => this.play(index)}>
+					<div className="row">
+						<span className="number">{index + 1}</span>
+						<span className="title">{song.name}</span>
+					</div>
 				</li>
 			);
 		});

@@ -36,3 +36,11 @@ body {
     width: 1px;
     height: 1px;
 }
+.row:active {
+    list-style: none;
+    background: red;
+}
+.row:hover {
+    background: darkslategrey;
+    border-bottom: 1px solid lightgray
+}
