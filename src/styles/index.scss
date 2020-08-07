@@ -27,7 +27,6 @@ body {
     width: 20px;
     height: 20px;
     color: pink;
-    border: 1px solid pink;
     padding: 1px;
 }
 
@@ -43,4 +42,11 @@ body {
 .row:hover {
     background: darkslategrey;
     border-bottom: 1px solid lightgray
+}
+
+.row span{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
